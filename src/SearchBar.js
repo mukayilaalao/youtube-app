@@ -5,7 +5,7 @@ class SearchBar extends React.Component {
         super()
 
         this.state = {
-            userInput = "",
+            userInput: "",
         }
     }
 
@@ -18,7 +18,7 @@ class SearchBar extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
-        
+
     }
 
     render() {
@@ -32,7 +32,7 @@ class SearchBar extends React.Component {
                     value={userInput}
                     onChange={this.handleInput}
                     />
-                    <button>Search</button>
+                    <button type="submit">Search</button>
                 </form>
 
             </div>
