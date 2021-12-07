@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 import "./NavBar.css"
 
 class NavBar extends React.Component {
-    constructor() {
-        super()
-
-    }
+    
 
     render() {
         return (
