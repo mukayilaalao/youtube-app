@@ -5,7 +5,7 @@ import "./App.css";
 import NavBar from "./NavBar";
 import About from "./About";
 import SearchBar from "./SearchBar";
-import Comments from "./Comments";
+// import Comments from "./Comments";
 import React from "react";
 
 class App extends React.Component {
