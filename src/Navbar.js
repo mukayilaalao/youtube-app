@@ -11,7 +11,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className="navbar">
-                <img src="https://toppng.com/uploads/preview/youtube-logo-11609383902z56yosfap9.png" alt="Youtube Logo"/>
+                <img src="https://www.freeiconspng.com/thumbs/youtube-logo-png/logo-youtube-png-27.png" alt="Youtube Logo"/>
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
             </div>
