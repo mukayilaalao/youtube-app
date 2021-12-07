@@ -22,7 +22,7 @@ class App extends React.Component {
                 return res.json();
             }).then((data)=>{
                 this.setState({
-                    videos: data.items ,                })
+                    videos: data.items })
             })
   }
 

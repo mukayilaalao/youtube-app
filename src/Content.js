@@ -2,6 +2,8 @@ import { Component } from "react";
 import YouTube from "react-youtube";
 import "./Content.css";
 
+
+
 class Content extends Component{
     // constructor(){
     //     super()
@@ -31,7 +33,7 @@ class Content extends Component{
         let videoArr = this.props.videos.map((video)=>{
             return (
             <li className="video">
-                <YouTube videoId={video.videoId}  onReady={this.VideoHandlePause}/>
+                <YouTube videoId={video.id.videoId}  onReady={this.VideoHandlePause}/>
                 <h3>{video.snippet.title}</h3>
             </li>
            )
