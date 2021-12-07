@@ -15,17 +15,13 @@ class SearchBar extends React.Component {
         })
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-
-
-    }
+   
 
     render() {
         const {userInput} = this.state
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={(e)=>this.props.handleSubmit(e,userInput)}>
                     <input 
                     type="text" 
                     name="userInput"
