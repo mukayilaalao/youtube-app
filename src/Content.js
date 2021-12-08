@@ -1,5 +1,5 @@
 import { Component } from "react";
-import YouTube from "react-youtube";
+import Video from "./Video";
 import "./Content.css";
 
 
@@ -20,9 +20,7 @@ class Content extends Component{
     //                 videos: data.items ,                })
     //         })
     // }
-    VideoHandlePause = event => {
-        event.target.pauseVideo();
-    }
+    // 
     
     render (){
         // const opts = {
@@ -30,14 +28,7 @@ class Content extends Component{
         //       autoplay: 1,
         //     }
         // }
-        let videoArr = this.props.videos.map((video)=>{
-            return (
-            <li className="video">
-                <YouTube videoId={video.id.videoId}  onReady={this.VideoHandlePause}/>
-                <h3>{video.snippet.title}</h3>
-            </li>
-           )
-        })
+        let videoArr = this.props.videos.map((video)=> <Video key={video.id.videoId} video={video} handleClick={this.props.handleClick}/>)
         return (
           <section className="content">
               {!videoArr.length ? <h4>"No Search Results Yet! Please submit a search above"</h4>: <ul className="all-videos">{videoArr}</ul>}

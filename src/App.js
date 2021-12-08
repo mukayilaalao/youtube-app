@@ -5,15 +5,17 @@ import "./App.css";
 import NavBar from "./NavBar";
 import About from "./About";
 import SearchBar from "./SearchBar";
-// import Comments from "./Comments";
+import Comments from "./Comments";
 import React from "react";
+import Player from "./Player";
 
 class App extends React.Component {
   constructor(){
     super();
     this.state={
       
-      videos:[]
+      videos:[],
+      videoToPlay:{}
     }
   }
   fetchData=(inp)=>{
@@ -32,13 +34,17 @@ class App extends React.Component {
     this.fetchData(userInput);
     
 }
+  handleClick=(video)=>{
+    this.setState({videoToPlay:video});
+  }
   render() { 
     return (
     <Router>
+      <NavBar />
       <Routes>
-        <Route path="/" element={<><NavBar /> <SearchBar handleSubmit={this.handleSubmit}/><Content videos={this.state.videos}/></>}/>
-        <Route path="/about" element={<><NavBar /><About /></>}/>
-        {/* <Route path="/videos" element={<><Comments/></>}/> */}
+        <Route path="/" element={<> <SearchBar handleSubmit={this.handleSubmit}/><Content videos={this.state.videos} handleClick={this.handleClick}/></>}/>
+        <Route path="/about" element={<About />}/>
+        <Route path="/videos/:videoId" element={<><Player video={this.state.videoToPlay}/><Comments/></>}/>
       </Routes>
     </Router>
       
