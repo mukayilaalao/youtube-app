@@ -1,10 +1,8 @@
-import Content from "./components/home/Content";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/navbar/NavBar";
 import About from "./components/about/About";
 import SearchBar from "./components/home/SearchBar";
-import Comments from "./components/video/Comments";
 import React from "react";
 import Player from "./components/video/Player";
 
