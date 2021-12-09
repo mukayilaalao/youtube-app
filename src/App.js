@@ -35,21 +35,19 @@ class App extends React.Component {
     
 }
 handleClear=()=>{
-  this.setState({ videos:[], videoToPlay:{}});
+  this.setState({ videos:[]});
   
 
 }
-  handleClick=(video)=>{
-    this.setState({videoToPlay:video});
-  }
+ 
   render() { 
     return (
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" element={<> <SearchBar handleSubmit={this.handleSubmit}/><Content videos={this.state.videos} handleClick={this.handleClick}/></>}/>
+        <Route path="/" element={<> <SearchBar handleSubmit={this.handleSubmit}/><Content videos={this.state.videos}/></>}/>
         <Route path="/about" element={<About />}/>
-        <Route path="/videos/:videoId" element={<><Player video={this.state.videoToPlay} handleClear={this.handleClear}/><Comments/></>}/>
+        <Route path="/videos/:videoId" element={<><Player handleClear={this.handleClear}/><Comments/></>}/>
       </Routes>
     </Router>
       

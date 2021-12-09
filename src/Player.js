@@ -1,24 +1,29 @@
 import React from "react";
 import YouTube from "react-youtube";
-import {Link} from"react-router-dom";
+import {Link, useParams} from"react-router-dom";
 
-class Player extends React.Component {
 
-    VideoHandlePlay = event => {
-        event.target.playVideo();
+function Player(props) {
+    const params=useParams();
+    const vidId=params.videoId;
+    console.log(vidId);
+    const {handleClear}=props;
+
+    const VideoHandlePlay = event => {
+        event.target.pauseVideo();
 
     }
-    render() { 
-        const {video, handleClear}=this.props;
-        return (
-            <section>
-                <YouTube videoId={video.id.videoId}  onReady={this.VideoHandlePlay}/>
-                <div>
-                  <button><Link onClick={handleClear} to="/">Search New Videos</Link></button>
-                </div>
-            </section>
-        );
-    }
+    
+    
+    return (
+        <section>
+            <YouTube videoId={vidId} onReady={VideoHandlePlay}/>
+            <div>
+                <button><Link onClick={handleClear} to="/">Search New Videos</Link></button>
+            </div>
+        </section>
+    );
+    
 }
  
 export default Player;

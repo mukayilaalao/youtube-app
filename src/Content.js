@@ -28,7 +28,7 @@ class Content extends Component{
         //       autoplay: 1,
         //     }
         // }
-        let videoArr = this.props.videos.map((video)=> <Video key={video.id.videoId} video={video} handleClick={this.props.handleClick}/>)
+        let videoArr = this.props.videos.map((video)=> <Video key={video.id.videoId} video={video}/>)
         return (
           <section className="content">
               {!videoArr.length ? <h4>"No Search Results Yet! Please submit a search above"</h4>: <ul className="all-videos">{videoArr}</ul>}
