@@ -1,11 +1,17 @@
 .navbar {
-    height: 50px;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    background-color: red;
-    width: 90%;
-    margin: 0 auto;
+  height: 50px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  background-color: red;
+  width: 90%;
+  margin: 0 auto;
+}
+.navbar a {
+  text-decoration: none;
 }
 .navbar img {
-    width: 50px;
+  width: 50px;
+}
+.bar-link div {
+  text-align: center;
 }

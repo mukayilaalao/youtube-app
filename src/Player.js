@@ -9,12 +9,12 @@ class Player extends React.Component {
 
     }
     render() { 
-        const {video}=this.props;
+        const {video, handleClear}=this.props;
         return (
             <section>
                 <YouTube videoId={video.id.videoId}  onReady={this.VideoHandlePlay}/>
                 <div>
-                  <button><Link to="/">Search New Videos</Link></button>
+                  <button><Link onClick={handleClear} to="/">Search New Videos</Link></button>
                 </div>
             </section>
         );

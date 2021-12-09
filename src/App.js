@@ -34,6 +34,11 @@ class App extends React.Component {
     this.fetchData(userInput);
     
 }
+handleClear=()=>{
+  this.setState({ videos:[], videoToPlay:{}});
+  
+
+}
   handleClick=(video)=>{
     this.setState({videoToPlay:video});
   }
@@ -44,7 +49,7 @@ class App extends React.Component {
       <Routes>
         <Route path="/" element={<> <SearchBar handleSubmit={this.handleSubmit}/><Content videos={this.state.videos} handleClick={this.handleClick}/></>}/>
         <Route path="/about" element={<About />}/>
-        <Route path="/videos/:videoId" element={<><Player video={this.state.videoToPlay}/><Comments/></>}/>
+        <Route path="/videos/:videoId" element={<><Player video={this.state.videoToPlay} handleClear={this.handleClear}/><Comments/></>}/>
       </Routes>
     </Router>
       
