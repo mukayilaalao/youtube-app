@@ -20,15 +20,16 @@ class SearchBar extends React.Component {
     const { userInput } = this.state;
     const { handleSubmit, videos } = this.props;
     return (
-      <div>
+      <div className="search-container">
         <form onSubmit={(e) => handleSubmit(e, userInput)}>
           <input
+            className="input-field"
             type="text"
             name="userInput"
             value={userInput}
             onChange={this.handleInput}
           />
-          <button type="submit">Search</button>
+          <button className="buttons" type="submit">Search</button>
         </form>
         <Content videos={videos} />
       </div>
