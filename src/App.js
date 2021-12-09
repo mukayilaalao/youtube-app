@@ -1,58 +1,66 @@
-
-import Content from "./Content";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Content from "./components/home/Content";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import NavBar from "./NavBar";
-import About from "./About";
-import SearchBar from "./SearchBar";
-import Comments from "./Comments";
+import NavBar from "./components/navbar/NavBar";
+import About from "./components/about/About";
+import SearchBar from "./components/home/SearchBar";
+import Comments from "./components/video/Comments";
 import React from "react";
-import Player from "./Player";
+import Player from "./components/video/Player";
 
 class App extends React.Component {
-  constructor(){
+  constructor() {
     super();
-    this.state={
-      
-      videos:[],
-     
-    }
+    this.state = {
+      videos: [],
+    };
   }
-  fetchData=(inp)=>{
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${inp}&type=video&key=${process.env.REACT_APP_API_KEY}`)
-            .then((res)=>{
-                return res.json();
-            }).then((data)=>{
-                this.setState({
-                    videos: data.items })
-            })
-  }
+  fetchData = (inp) => {
+    fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${inp}&type=video&key=${process.env.REACT_APP_API_KEY}`
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        this.setState({
+          videos: data.items,
+        });
+      });
+  };
 
-  handleSubmit = (e,userInput) => {
+  handleSubmit = (e, userInput) => {
     console.log(userInput);
-    e.preventDefault()
+    e.preventDefault();
     this.fetchData(userInput);
-    
-}
-handleClear=()=>{
-  this.setState({ videos:[]});
-  
+  };
+  handleClear = () => {
+    this.setState({ videos: [] });
+  };
 
-}
- 
-  render() { 
+  render() {
     return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<> <SearchBar handleSubmit={this.handleSubmit}/><Content videos={this.state.videos}/></>}/>
-        <Route path="/about" element={<About />}/>
-        <Route path="/videos/:videoId" element={<><Player handleClear={this.handleClear}/><Comments/></>}/>
-      </Routes>
-    </Router>
-      
-
-    )}
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <SearchBar
+                handleSubmit={this.handleSubmit}
+                videos={this.state.videos}
+              />
+            }
+          />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/videos/:videoId"
+            element={<Player handleClear={this.handleClear} />}
+          />
+        </Routes>
+      </Router>
+    );
+  }
 }
- 
+
 export default App;

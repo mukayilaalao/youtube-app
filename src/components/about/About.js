@@ -1,8 +1,8 @@
 import React from "react"
 import "./About.css"
-import JennaImg from "./assets/Jenna.jpg"
-import MkImg from "./assets/Mk.jpg"
-import TrustyImg from "./assets/Trusty.jpg"
+import JennaImg from "../../assets/Jenna.jpg"
+import MkImg from "../../assets/Mk.jpg"
+import TrustyImg from "../../assets/Trusty.jpg"
 
 class About extends React.Component {
     render() {
