@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Video from "./Video";
 import "./Content.css";
+import "./SearchBar.css";
 
 class Content extends Component {
   render() {
