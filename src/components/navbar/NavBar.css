@@ -1,0 +1,36 @@
+.navbar {
+  height: 50px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  background-color: red;
+  width: 90%;
+  margin: 0 auto;
+  font-family: fantasy;
+}
+.navbar img {
+  width: 50px;
+  margin: 0 auto;
+  cursor: not-allowed;
+}
+.icon {
+  color: white;
+  text-decoration: inherit;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  height: 50px;
+  width: 125px;
+  margin: 0px 10px;
+}
+.icon > p {
+  padding: 0px;
+  margin: 10px auto;
+}
+.icon:hover {
+  border-radius: 50%;
+  border: 5px dotted white;
+  background-color: white;
+  cursor: alias;
+  font-size: large;
+  color: red;
+}
