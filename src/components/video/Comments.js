@@ -41,9 +41,11 @@ class Comments extends React.Component {
                     <br/>
                     <button type="submit">Submit</button>
                 </form>
-                <ul className="comments">
-                    {commentsInfo.map((obj,i)=> <li key={"item"+i}><><h2>{obj.userName}</h2><div>{obj.userComment}</div></></li>)}
-                </ul>
+                <div>
+                    <ul className="comments">
+                        {commentsInfo.map((obj,i)=> <li key={"item"+i}><><h2>{obj.userName}</h2><div>{obj.userComment}</div></></li>)}
+                    </ul>
+                </div>
             </React.Fragment>
         );
     }
