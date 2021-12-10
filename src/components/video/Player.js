@@ -16,16 +16,20 @@ function Player(props) {
 
   return (
     <section>
-      <div className="player-container">
-        <YouTube videoId={vidId} onReady={VideoHandlePlay} />
-          <div className="new-search">
-            <button>
-              <Link onClick={handleClear} to="/">
-                    Search New Videos
-              </Link>
-            </button>
+      <div>
+          <div className="player-container">
+            <YouTube videoId={vidId} onReady={VideoHandlePlay} />
+                <div className="new-search">
+                    <button>
+                      <Link onClick={handleClear} to="/">
+                         Search New Videos
+                      </Link>
+                    </button>
+                </div>
           </div>
-          <Comments />
+          <div>  
+              <Comments />
+          </div> 
       </div>
     </section>
   );
