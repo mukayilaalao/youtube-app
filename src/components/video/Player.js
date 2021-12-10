@@ -2,6 +2,7 @@ import React from "react";
 import YouTube from "react-youtube";
 import { Link, useParams } from "react-router-dom";
 import Comments from "./Comments";
+import "./Player.css";
 
 function Player(props) {
   const params = useParams();
@@ -15,15 +16,17 @@ function Player(props) {
 
   return (
     <section>
-      <YouTube videoId={vidId} onReady={VideoHandlePlay} />
-      <div>
-        <button>
-          <Link onClick={handleClear} to="/">
-            Search New Videos
-          </Link>
-        </button>
+      <div className="player-container">
+        <YouTube videoId={vidId} onReady={VideoHandlePlay} />
+          <div className="new-search">
+            <button>
+              <Link onClick={handleClear} to="/">
+                    Search New Videos
+              </Link>
+            </button>
+          </div>
+          <Comments />
       </div>
-      <Comments />
     </section>
   );
 }

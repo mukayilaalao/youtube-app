@@ -1,7 +1,7 @@
 import React from "react";
 import {decode} from "html-entities";
 import {Link} from "react-router-dom";
-
+import "./Video.css";
 
 class Video extends React.Component {
 
