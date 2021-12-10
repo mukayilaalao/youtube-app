@@ -33,11 +33,11 @@ class Comments extends React.Component {
                 <form onSubmit={this.handleSubmit} className="form">
                     <label htmlFor="commentor">Name</label>
                     <br/>
-                    <input id="commentor" value={userName} name="userName" placeholder="name..." onChange={this.handleChange}/>
+                    <input id="commentor" value={userName} name="userName" placeholder="name" onChange={this.handleChange}/>
                     <br/>
                     <label htmlFor="comment">Comment</label>
                     <br/>
-                    <input id="comment" value={userComment} name="userComment" placeholder="..." onChange={this.handleChange}/>
+                    <input id="comment" value={userComment} name="userComment" placeholder="comment" onChange={this.handleChange}/>
                     <br/>
                     <button type="submit">Submit</button>
                 </form>
