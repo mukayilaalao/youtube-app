@@ -1,5 +1,6 @@
 import React from "react";
 import Content from "./Content";
+import "./SearchBar.css";
 
 class SearchBar extends React.Component {
   constructor() {
@@ -23,6 +24,7 @@ class SearchBar extends React.Component {
       <div className="search-container">
         <form onSubmit={(e) => handleSubmit(e, userInput)}>
           <input
+            placeholder="Search"
             className="input-field"
             type="text"
             name="userInput"
