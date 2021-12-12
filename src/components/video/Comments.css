@@ -1,18 +1,85 @@
-.form > * {
+.comments-container {
+  font-family: fantasy;
   display: grid;
-  grid-template-rows: repeat(1, 1fr);
-  margin-top: 10px;
-  margin-bottom: 10px;
-  
+  grid-template-areas: "form comments";
+  width: 60%;
+  margin: 0 auto;
 }
-.commits {
-  text-align: center;
+.form-container {
+  grid-area: form;
+}
+.comments-area {
+  grid-area: comments;
+  padding: 0px;
+}
+.input-field1 {
+  width: 325px;
+  height: 50px;
+  padding: 0px 10px;
+  margin: 10px 0px;
+  outline: none;
+  font-size: x-large;
+  font-family: fantasy;
+}
+.input-field2 {
+  font-family: fantasy;
+  font-size: x-large;
+  width: 325px;
+  height: 200px;
+  padding: 10px 10px;
+  margin: 10px 0px;
+  outline: none;
+}
+.labels {
+  font-weight: bolder;
+  font-size: 20px;
 }
 
-.form button {
-  background-color: grey;
+.submit-btn {
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  font-size: large;
+  font-weight: bolder;
+  margin: 10px 0px;
+  font-family: fantasy;
 }
-
-ul {
-  list-style: none;
+.submit-btn:hover {
+  color: red;
+  border: 3px solid red;
+  cursor: alias;
+  box-shadow: 0 0 5pt 1pt red;
+}
+.comments {
+  list-style-type: none;
+  padding: 0px;
+  width: 450px;
+  height: 100px;
+}
+.user-name {
+  text-decoration: underline;
+}
+.user-comment {
+  font-size: 20px;
+}
+.li-comment {
+  padding: 5px;
+}
+.li-comment:hover {
+  box-shadow: 0 0 5pt 1pt red;
+}
+.li-button {
+  width: 150px;
+  outline:none;
+  border-radius: 50%;
+  background-color: white;
+}
+.li-button:hover {
+  box-shadow: 0 0 3pt 1pt red;
+}
+hr {
+  border: 10px solid red;
+  border-radius: 5px;
+  width: 62%;
 }

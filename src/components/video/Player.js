@@ -18,10 +18,10 @@ function Player(props) {
     <section>
       <div>
           <div className="player-container">
-            <YouTube videoId={vidId} onReady={VideoHandlePlay} />
+            <YouTube className="youtube-video" videoId={vidId} onReady={VideoHandlePlay} />
                 <div className="new-search">
-                    <button>
-                      <Link onClick={handleClear} to="/">
+                    <button className="new-search-btn">
+                      <Link  className="new-search-btn-link" onClick={handleClear} to="/">
                          Search New Videos
                       </Link>
                     </button>
@@ -36,11 +36,3 @@ function Player(props) {
 }
 
 export default Player;
-
-/*
-
-<li className="video">
-                <YouTube videoId={video.id.videoId}  onReady={this.VideoHandlePause}/>
-                <h3>{video.snippet.title}</h3>
-            </li>
-*/

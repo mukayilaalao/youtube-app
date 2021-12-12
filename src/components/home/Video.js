@@ -5,13 +5,13 @@ import "./Video.css";
 
 class Video extends React.Component {
 
-    
     render() { 
         const {video}=this.props;
         return (
-            <li className="video">
-               <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title}/>
-               <Link to={`/videos/${video.id.videoId}`}><h4>{decode(video.snippet.title)}</h4></Link>
+            <li className="video-li">
+                <Link className="thumbnail-links" to={`/videos/${video.id.videoId}`}><h4 className="thumbnail-links">{decode(video.snippet.title)}</h4></Link>
+                <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title}/>
+                <p className="upload-date">Uploaded on: {video.snippet.publishTime ? video.snippet.publishTime.slice(0,10): null}</p>
             </li>
         );
     }
