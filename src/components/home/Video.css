@@ -1,4 +1,26 @@
-.video{
-    text-align: center;
-    
+.video-li {
+  border: 2px solid black;
+  width: 350px;
+  height: 325px;
+  border-radius: 5%;
+}
+.video-li > img {
+    border-radius: 10%;
+}
+.upload-date {
+  font-weight: bolder;
+}
+.thumbnail-links {
+  color: inherit;
+  text-decoration: none;
+  width: 300px;
+  margin: 10px auto;
+}
+.thumbnail-links:hover {
+  color: red;
+}
+.video-li:hover {
+    transform: scale(1.1);
+    transition-duration: 2s;
+    border: 3px solid red;
 }

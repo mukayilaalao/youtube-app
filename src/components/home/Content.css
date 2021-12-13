@@ -1,6 +1,16 @@
+.content {
+  width: 85%;
+  margin: 0 auto;
+}
 .all-videos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  text-align: center;
+  list-style-type: none;
+  padding: 0px;
+  gap: 25px;
+}
+.msg {
+  width: 50%;
+  margin: 15px auto;
+  font-size: large;
 }
