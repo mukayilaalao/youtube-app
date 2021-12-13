@@ -28,13 +28,13 @@ class Comments extends React.Component {
     }
 
     
-    handleDelete = (key) => {
+    handleDelete = (obj) => {
         const {commentsInfo} = this.state
-        console.log(key)
-        console.log(this.state.commentsInfo)
-        let filteredObj = [...commentsInfo].filter((comment,i) => comment[i] === key)
+        let index = commentsInfo.indexOf(obj)
+        let copy = [...commentsInfo]
+        copy.splice(index, 1)
         this.setState({
-            commentsInfo: filteredObj,
+            commentsInfo: copy,
         })
     }
 
@@ -58,7 +58,7 @@ class Comments extends React.Component {
                     </form>
                     <div className="comments-area">
                         <ul className="comments">
-                            {commentsInfo.map((obj,i)=> <li className="li-comment" key={"item"+i}><><h2 className="user-name">{obj.userName}</h2><p className="user-comment">{obj.userComment}</p></><button className="li-button" onClick={() => {this.handleDelete(i)}}>X</button></li>)}
+                            {commentsInfo.map((obj,i)=> <li id={i} className="li-comment" key={"item"+i}><><h2 className="user-name">{obj.userName}</h2><p className="user-comment">{obj.userComment}</p></><button className="li-button" onClick={() => {this.handleDelete(obj)}}>X</button></li>)}
                         </ul>
                     </div>
                 </div>
