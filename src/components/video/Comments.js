@@ -2,15 +2,30 @@ import React from "react";
 import "./Comments.css";
 
 class Comments extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       userName: "",
       userComment: "",
       commentsInfo: [],
     };
   }
-
+  getPrevComments = (id, videosComments) => {
+    const videoObj = videosComments.find((obj) => obj.videoId === id);
+    if (!videoObj) return [];
+    return videoObj.commentsInfo;
+  };
+  componentDidMount = () => {
+    const { videosComments, videoId } = this.props;
+    console.log(videosComments);
+    this.setState({
+      commentsInfo: this.getPrevComments(videoId, videosComments),
+    });
+  };
+  componentWillUnmount = () => {
+    const { videoId, saveComments } = this.props;
+    saveComments(videoId, this.state.commentsInfo);
+  };
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,

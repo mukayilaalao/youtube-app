@@ -11,8 +11,37 @@ class App extends React.Component {
     super();
     this.state = {
       videos: [],
+      videosComments: [],
     };
   }
+  // getAtualVideoId = (id) => {
+  //   this.setState({
+  //     actualVideoId: id,
+  //   });
+  // };
+  saveComments = (videoId, commentsInfo) => {
+    let videoToSave = this.state.videosComments.find(
+      (obj) => obj.videoId === videoId
+    );
+    if (!videoToSave)
+      this.setState({
+        videosComments: [
+          ...this.state.videosComments,
+          { videoId, commentsInfo },
+        ],
+      });
+    else {
+      const index = this.state.videosComments.indexOf(videoToSave);
+      var copyVideosComments = [...this.state.videosComments];
+      console.log(copyVideosComments);
+      copyVideosComments.splice(index, 1);
+      videoToSave = { videoId, commentsInfo };
+      this.setState({
+        videosComments: [...copyVideosComments, videoToSave],
+      });
+    }
+  };
+
   fetchData = (inp) => {
     fetch(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=21&q=${inp}&type=video&key=${process.env.REACT_APP_API_KEY}`
@@ -53,7 +82,13 @@ class App extends React.Component {
           <Route path="/about" element={<About />} />
           <Route
             path="/videos/:videoId"
-            element={<Player handleClear={this.handleClear} />}
+            element={
+              <Player
+                saveComments={this.saveComments}
+                videosComments={this.state.videosComments}
+                handleClear={this.handleClear}
+              />
+            }
           />
         </Routes>
       </Router>

@@ -8,7 +8,7 @@ function Player(props) {
   const params = useParams();
   const vidId = params.videoId;
   console.log(vidId);
-  const { handleClear } = props;
+  const { handleClear, saveComments, videosComments } = props;
 
   const VideoHandlePlay = (event) => {
     event.target.playVideo();
@@ -18,14 +18,18 @@ function Player(props) {
     <section>
       <div className="player-container">
         <YouTube videoId={vidId} onReady={VideoHandlePlay} />
-          <div className="new-search">
-            <button>
-              <Link onClick={handleClear} to="/">
-                    Search New Videos
-              </Link>
-            </button>
-          </div>
-          <Comments />
+        <div className="new-search">
+          <button>
+            <Link onClick={handleClear} to="/">
+              Search New Videos
+            </Link>
+          </button>
+        </div>
+        <Comments
+          videoId={vidId}
+          saveComments={saveComments}
+          videosComments={videosComments}
+        />
       </div>
     </section>
   );
