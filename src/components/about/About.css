@@ -2,8 +2,6 @@
     display: grid;
     text-align: center;
     font-family: fantasy;
-    /* font-family: "Lucida Console", "Courier New", monospace; */
-
 }
 .bios-container {
     display: grid;
@@ -32,4 +30,7 @@
     font-size: 25px;
     width: 80%;
     margin: 25px auto;
+}
+.trusty, .alao, .qian {
+    padding: 25px;
 }
