@@ -2,6 +2,7 @@ import React from "react";
 import "./Comments.css";
 
 class Comments extends React.Component {
+
     constructor(){
         super();
         this.state={
@@ -66,5 +67,5 @@ class Comments extends React.Component {
         );
     }
 }
- 
+
 export default Comments;
