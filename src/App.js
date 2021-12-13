@@ -12,13 +12,15 @@ class App extends React.Component {
     this.state = {
       videos: [],
       videosComments: [],
+      userInput: "",
     };
   }
-  // getAtualVideoId = (id) => {
-  //   this.setState({
-  //     actualVideoId: id,
-  //   });
-  // };
+
+  handleInput = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
   saveComments = (videoId, commentsInfo) => {
     let videoToSave = this.state.videosComments.find(
       (obj) => obj.videoId === videoId
@@ -56,10 +58,15 @@ class App extends React.Component {
       });
   };
 
-  handleSubmit = (e, userInput) => {
-    console.log(userInput);
+  handleSubmit = (e) => {
     e.preventDefault();
-    this.fetchData(userInput);
+    const { userInput } = this.state;
+    if (userInput) {
+      this.fetchData(userInput);
+      this.setState({
+        userInput: "",
+      });
+    }
   };
   handleClear = () => {
     this.setState({ videos: [] });
@@ -74,6 +81,8 @@ class App extends React.Component {
             path="/"
             element={
               <SearchBar
+                userInput={this.state.userInput}
+                handleInput={this.handleInput}
                 handleSubmit={this.handleSubmit}
                 videos={this.state.videos}
               />

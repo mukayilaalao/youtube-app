@@ -3,35 +3,22 @@ import Content from "./Content";
 import "./SearchBar.css";
 
 class SearchBar extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      userInput: "",
-    };
-  }
-
-  handleInput = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-
   render() {
-    const { userInput } = this.state;
-    const { handleSubmit, videos } = this.props;
+    const { handleSubmit, videos, handleInput, userInput } = this.props;
     return (
       <div className="search-container">
-        <form onSubmit={(e) => handleSubmit(e, userInput)}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <input
             placeholder="--->   Enter Search Here   <---"
             className="input-field"
             type="text"
             name="userInput"
             value={userInput}
-            onChange={this.handleInput}
+            onChange={(e) => handleInput(e)}
           />
-          <button className="buttons" type="submit">Search</button>
+          <button className="buttons" type="submit">
+            Search
+          </button>
         </form>
         <Content videos={videos} />
       </div>
